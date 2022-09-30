@@ -35,3 +35,9 @@ end
 require('lspconfig')['jedi_language_server'].setup{
     on_attach = on_attach,
 }
+require('lspconfig')['rls'].setup{
+    on_attach = on_attach,
+}
+require('lspconfig').['sumneko_lua'].setup{
+    on_attach = on_attach,
+}

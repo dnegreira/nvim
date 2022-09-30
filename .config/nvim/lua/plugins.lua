@@ -79,10 +79,8 @@ return packer.startup(function(use)
     -- LSP confs
    require("mason").setup()
    require("mason-lspconfig").setup({
-  	 ensure_installed = {"jedi_language_server", "sumneko_lua"}
+  	 ensure_installed = {"jedi_language_server", "sumneko_lua", "rls"}
    })
-   require'lspconfig'.jedi_language_server.setup{}
-   require'lspconfig'.sumneko_lua.setup{}
    -- Automatically set up your configuration after cloning packer.nvim
    -- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

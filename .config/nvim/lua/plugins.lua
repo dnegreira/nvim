@@ -45,6 +45,7 @@ return packer.startup(function(use)
       "neovim/nvim-lspconfig",
       requires = { {"williamboman/mason.nvim"}, {"williamboman/mason-lspconfig.nvim"} },
     })
+    use 'nvim-treesitter/nvim-treesitter-context'
     --Theme
     use 'joshdick/onedark.vim'
     use 'bluz71/vim-moonfly-colors'
@@ -61,7 +62,9 @@ return packer.startup(function(use)
     require('mini.completion').setup()
     require('mini.tabline').setup()
     require('nvim-tree').setup()
+    require('nvim-treesitter-context').setup()
     require('nvim-treesitter').setup()
+    
     require('gitsigns').setup({
       signs = {
           add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},

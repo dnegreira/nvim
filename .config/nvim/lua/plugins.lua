@@ -53,6 +53,7 @@ return packer.startup(function(use)
         requires = {'kyazdani42/nvim-web-devicons'}
     }
     use 'wellle/context.vim'
+    use 'jose-elias-alvarez/null-ls.nvim'
 
     require('mini.statusline').setup()
     require('mini.indentscope').setup()
@@ -81,8 +82,15 @@ return packer.startup(function(use)
     -- LSP confs
    require("mason").setup()
    require("mason-lspconfig").setup({
-  	 ensure_installed = {"jedi_language_server", "sumneko_lua", "rls"}
+	ensure_installed = {"jedi_language_server", "sumneko_lua", "gopls"}
    })
+   require("null-ls").setup({
+	sources = {
+		require("null-ls").builtins.diagnostics.golangci_lint,
+		require("null-ls").builtins.formatting.goimports_reviser,
+	},
+  })
+
    -- Automatically set up your configuration after cloning packer.nvim
    -- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

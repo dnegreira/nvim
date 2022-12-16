@@ -13,3 +13,6 @@ local keymap = function(mode, keys, cmd)
 end
 keymap('n', '[b', [[<Cmd>bprevious<CR>]], nil)
 keymap('n', ']b', [[<Cmd>bnext<CR>]], nil)
+keymap('n', '[c', [[<Cmd>bdelete<CR>]], nil)
+
+keymap('n', '<C-n>', '[[<Cmd>NvimTreeToggle<CR>]]', nil)

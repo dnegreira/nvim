@@ -129,7 +129,7 @@ return packer.startup(function(use)
    })
    require("null-ls").setup({
 	sources = {
-		require("null-ls").builtins.diagnostics.golangci_lint,
+		-- require("null-ls").builtins.diagnostics.golangci_lint, -- This is done by mason/lspconfig/gopls
 		require("null-ls").builtins.formatting.goimports_reviser,
 	},
   })

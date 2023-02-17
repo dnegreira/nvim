@@ -54,6 +54,7 @@ return packer.startup(function(use)
     }
     use 'wellle/context.vim'
     use 'jose-elias-alvarez/null-ls.nvim'
+    use 'ethanholz/nvim-lastplace'
 
     require('mini.statusline').setup()
     require('mini.indentscope').setup()
@@ -125,7 +126,6 @@ return packer.startup(function(use)
     -- LSP confs
    require("mason").setup()
    require("mason-lspconfig").setup({
-	ensure_installed = {"jedi_language_server", "sumneko_lua", "gopls"}
    })
    require("null-ls").setup({
 	sources = {
@@ -133,6 +133,7 @@ return packer.startup(function(use)
 		require("null-ls").builtins.formatting.goimports_reviser,
 	},
   })
+  require("nvim-lastplace").setup()
 
    -- Automatically set up your configuration after cloning packer.nvim
    -- Put this at the end after all plugins

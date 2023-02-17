@@ -35,10 +35,13 @@ end
 require('lspconfig')['jedi_language_server'].setup{
     on_attach = on_attach,
 }
-require('lspconfig')['sumneko_lua'].setup{
+require('lspconfig')['lua_ls'].setup{
     on_attach = on_attach,
 }
 require('lspconfig')['gopls'].setup{
+    on_attach = on_attach,
+}
+require('lspconfig')['clangd'].setup{
     on_attach = on_attach,
 }
 

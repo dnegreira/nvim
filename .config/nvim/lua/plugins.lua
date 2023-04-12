@@ -55,6 +55,8 @@ return packer.startup(function(use)
     use 'wellle/context.vim'
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'ethanholz/nvim-lastplace'
+    use 'ray-x/go.nvim'
+    use 'ray-x/guihua.lua'
 
     require('mini.statusline').setup()
     require('mini.indentscope').setup()
@@ -134,6 +136,7 @@ return packer.startup(function(use)
 	},
   })
   require("nvim-lastplace").setup()
+  require("go").setup()
 
    -- Automatically set up your configuration after cloning packer.nvim
    -- Put this at the end after all plugins

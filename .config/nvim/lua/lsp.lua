@@ -29,7 +29,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
+
+  client.server_capabilities.document_formatting = true
+  if client.resolved_capabilities.document_formatting then
+    vim.cmd("au BufWritePre <buffer> lua vim.lsp.buf.format({async = true})")
+ end
 end
 
 require('lspconfig')['jedi_language_server'].setup{

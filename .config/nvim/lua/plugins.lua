@@ -57,6 +57,7 @@ return packer.startup(function(use)
     use 'ethanholz/nvim-lastplace'
     use 'ray-x/go.nvim'
     use 'ray-x/guihua.lua'
+    use 'jay-babu/mason-null-ls.nvim'
 
     require('mini.statusline').setup()
     require('mini.indentscope').setup()
@@ -133,10 +134,13 @@ return packer.startup(function(use)
 	sources = {
 		-- require("null-ls").builtins.diagnostics.golangci_lint, -- This is done by mason/lspconfig/gopls
 		require("null-ls").builtins.formatting.goimports_reviser,
+		require("null-ls").builtins.formatting.black,
+		require("null-ls").builtins.diagnostics.flake8,
 	},
   })
   require("nvim-lastplace").setup()
   require("go").setup()
+  require("mason-null-ls").setup()
 
    -- Automatically set up your configuration after cloning packer.nvim
    -- Put this at the end after all plugins

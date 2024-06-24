@@ -36,7 +36,7 @@ return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'echasnovski/mini.nvim'
     -- for mini.statusline
-    use {'lewis6991/gitsigns.nvim', branch=release}
+    use {'lewis6991/gitsigns.nvim', branch = 'release'}
     use 'kyazdani42/nvim-web-devicons'
     use {
       'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'}, {'nvim-treesitter/nvim-treesitter'} }

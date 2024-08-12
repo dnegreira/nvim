@@ -32,9 +32,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
 
   client.server_capabilities.document_formatting = true
-  if client.resolved_capabilities.document_formatting then
-    vim.cmd("au BufWritePre <buffer> lua vim.lsp.buf.format({async = true})")
- end
+  vim.cmd("au BufWritePre <buffer> lua vim.lsp.buf.format({async = true})")
 end
 
 require('lspconfig')['jedi_language_server'].setup{

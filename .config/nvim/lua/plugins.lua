@@ -58,6 +58,7 @@ return packer.startup(function(use)
     use 'ray-x/go.nvim'
     use 'ray-x/guihua.lua'
     use 'jay-babu/mason-null-ls.nvim'
+    use 'kylechui/nvim-surround'
 
     require('mini.statusline').setup()
     require('mini.indentscope').setup()
@@ -67,6 +68,7 @@ return packer.startup(function(use)
     require('mini.completion').setup()
     require('mini.tabline').setup()
     require('nvim-tree').setup()
+    require('nvim-surround').setup()
 
 
     require'nvim-treesitter.configs'.setup {

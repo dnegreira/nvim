@@ -16,3 +16,4 @@ keymap('n', ']b', [[<Cmd>bnext<CR>]], nil)
 keymap('n', '[c', [[<Cmd>bdelete<CR>]], nil)
 
 keymap('n', '<C-n>', '[[<Cmd>NvimTreeToggle<CR>]]', nil)
+keymap('n', 'gbl', [[<Cmd>Gitsigns blame_line full=true<CR>]], nil)

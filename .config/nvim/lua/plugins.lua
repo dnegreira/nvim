@@ -127,6 +127,7 @@ return packer.startup(function(use)
       linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
       word_diff  = true, -- Toggle with `:Gitsigns toggle_word_diff`
       current_line_blame = true,
+      current_line_blame_formatter = '<author>, <author_time:%R> - <summary> - <abbrev_sha>',
     })
     -- LSP confs
    require("mason").setup()

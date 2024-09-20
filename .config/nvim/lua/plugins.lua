@@ -39,7 +39,7 @@ return packer.startup(function(use)
     use {'lewis6991/gitsigns.nvim', tag = 'v0.9.0'}
     use 'kyazdani42/nvim-web-devicons'
     use {
-      'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'}, {'nvim-treesitter/nvim-treesitter'} }
+      'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'}, {'nvim-treesitter/nvim-treesitter', tag='v0.9.1'} }
     }
     use({
       "neovim/nvim-lspconfig",

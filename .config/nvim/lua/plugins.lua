@@ -139,6 +139,8 @@ return packer.startup(function(use)
 		require("null-ls").builtins.formatting.goimports_reviser,
 		require("null-ls").builtins.formatting.black,
 		require("null-ls").builtins.diagnostics.flake8,
+		require("null-ls").builtins.formatting.shfmt,
+		require("null-ls").builtins.diagnostics.shellcheck,
 	},
   })
   require("nvim-lastplace").setup()

@@ -55,7 +55,7 @@ return packer.startup(function(use)
     use 'wellle/context.vim'
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'ethanholz/nvim-lastplace'
-    use 'ray-x/go.nvim'
+    use {'ray-x/go.nvim', tag = 'v0.9.0'}
     use 'ray-x/guihua.lua'
     use 'jay-babu/mason-null-ls.nvim'
     use 'kylechui/nvim-surround'
@@ -136,7 +136,7 @@ return packer.startup(function(use)
    require("null-ls").setup({
 	sources = {
 		-- require("null-ls").builtins.diagnostics.golangci_lint, -- This is done by mason/lspconfig/gopls
-		require("null-ls").builtins.formatting.goimports_reviser,
+		-- require("null-ls").builtins.formatting.goimports_reviser,
 		require("null-ls").builtins.formatting.black,
 		require("null-ls").builtins.diagnostics.flake8,
 		require("null-ls").builtins.formatting.shfmt,

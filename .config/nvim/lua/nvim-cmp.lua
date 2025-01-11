@@ -32,6 +32,7 @@ for _, lsp in ipairs(servers) do
 				usePlaceholders = true,
 			},
 			analyses = {
+				-- https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md
 				unusedparams = true,
 			},
 		},

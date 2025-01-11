@@ -32,123 +32,150 @@ end
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- make sure to add this line to let packer manage itself
-    use 'wbthomason/packer.nvim'
-    use 'echasnovski/mini.nvim'
-    -- for mini.statusline
-    use {'lewis6991/gitsigns.nvim', tag = 'v0.9.0'}
-    use 'kyazdani42/nvim-web-devicons'
-    use {
-      'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'}, {'nvim-treesitter/nvim-treesitter', tag='v0.9.1'} }
-    }
-    use({
-      "neovim/nvim-lspconfig",
-      requires = { {"williamboman/mason.nvim"}, {"williamboman/mason-lspconfig.nvim"} },
-    })
-    --Theme
-    use 'joshdick/onedark.vim'
-    use 'bluz71/vim-moonfly-colors'
-    use "EdenEast/nightfox.nvim"
-    use { 'kyazdani42/nvim-tree.lua',
-        requires = {'kyazdani42/nvim-web-devicons'}
-    }
-    use 'wellle/context.vim'
-    use 'jose-elias-alvarez/null-ls.nvim'
-    use 'ethanholz/nvim-lastplace'
-    use {'ray-x/go.nvim', tag = 'v0.9.0'}
-    use 'ray-x/guihua.lua'
-    use 'jay-babu/mason-null-ls.nvim'
-    use 'kylechui/nvim-surround'
+	-- make sure to add this line to let packer manage itself
+	use 'wbthomason/packer.nvim'
+	use 'echasnovski/mini.nvim'
+	-- for mini.statusline
+	-- use { 'lewis6991/gitsigns.nvim', tag = 'v0.9.0' }
+	use { 'lewis6991/gitsigns.nvim'}
+	use 'kyazdani42/nvim-web-devicons'
+	use {
+		-- 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-treesitter/nvim-treesitter', tag = 'v0.9.1' } }
+		'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-treesitter/nvim-treesitter' } }
+	}
+	use({
+		"neovim/nvim-lspconfig",
+		requires = { { "williamboman/mason.nvim" }, { "williamboman/mason-lspconfig.nvim" } },
+	})
+	--Theme
+	use 'joshdick/onedark.vim'
+	use 'bluz71/vim-moonfly-colors'
+	use "EdenEast/nightfox.nvim"
+	use { 'kyazdani42/nvim-tree.lua',
+		requires = { 'kyazdani42/nvim-web-devicons' }
+	}
+	use 'wellle/context.vim'
+	use 'jose-elias-alvarez/null-ls.nvim'
+	use 'ethanholz/nvim-lastplace'
+	use { 'ray-x/go.nvim', tag = 'v0.9.0' }
+	use 'ray-x/guihua.lua'
+	use 'jay-babu/mason-null-ls.nvim'
+	use 'kylechui/nvim-surround'
 
-    require('mini.statusline').setup()
-    require('mini.indentscope').setup()
-    require('mini.pairs').setup()
-    require('mini.fuzzy').setup()
-    require('mini.trailspace').setup()
-    require('mini.completion').setup()
-    require('mini.tabline').setup()
-    require('nvim-tree').setup()
-    require('nvim-surround').setup()
+	use("onsails/lspkind.nvim") -- fancy cmp menu
+	use("ray-x/lsp_signature.nvim") -- get func signature help
+
+	-- autocompletion
+	use("hrsh7th/nvim-cmp")                -- completion plugin
+	use("hrsh7th/cmp-buffer")              -- source for text in buffer
+	use("hrsh7th/cmp-path")                -- source for file system paths
+	use("hrsh7th/cmp-nvim-lsp")            -- source for nvim_lsp
+	use("hrsh7th/cmp-nvim-lsp-signature-help") -- source for nvim_lsp
+
+	-- snippets
+	use("L3MON4D3/LuaSnip")         -- snippet engine
+	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+	use("rafamadriz/friendly-snippets") -- useful snippets
 
 
-    require'nvim-treesitter.configs'.setup {
-      -- A list of parser names, or "all"
-      ensure_installed = { "c", "lua", "go" },
+	require('mini.statusline').setup()
+	require('mini.indentscope').setup()
+	require('mini.pairs').setup()
+	require('mini.fuzzy').setup()
+	require('mini.trailspace').setup()
+	-- require('mini.icons').setup()
+	-- require('mini.completion').setup()
+	-- require('mini.tabline').setup()
+	require('nvim-tree').setup()
+	require('nvim-surround').setup()
 
-      -- Install parsers synchronously (only applied to `ensure_installed`)
-      sync_install = false,
 
-      -- Automatically install missing parsers when entering buffer
-      -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-      auto_install = true,
+	require 'nvim-treesitter.configs'.setup {
+		-- A list of parser names, or "all"
+		ensure_installed = { "c", "lua", "go" },
 
-      -- List of parsers to ignore installing (for "all")
-      ignore_install = { "javascript" },
+		-- Install parsers synchronously (only applied to `ensure_installed`)
+		sync_install = false,
 
-      ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-      -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+		-- Automatically install missing parsers when entering buffer
+		-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+		auto_install = true,
 
-      highlight = {
-        -- `false` will disable the whole extension
-        enable = true,
+		-- List of parsers to ignore installing (for "all")
+		ignore_install = { "javascript" },
 
-        -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-        -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-        -- the name of the parser)
-        -- list of language that will be disabled
-        -- disable = { "c", "rust" },
-        -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-        -- disable = function(lang, buf)
-        --     local max_filesize = 100 * 1024 -- 100 KB
-        --     local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        --     if ok and stats and stats.size > max_filesize then
-        --         return true
-        --     end
-        -- end,
+		---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+		-- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
 
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
-      },
-    }
+		highlight = {
+			-- `false` will disable the whole extension
+			enable = true,
 
-    require('gitsigns').setup({
-      signs = {
-          add          = {text = '+'},
-          change       = {text = '~',},
-          delete       = {text = '-',},
-          topdelete    = {text = '-',},
-          changedelete = {text = '-',},
-      },
-      signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-      numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
-      linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-      word_diff  = true, -- Toggle with `:Gitsigns toggle_word_diff`
-      current_line_blame = true,
-      current_line_blame_formatter = '<author>, <author_time:%R> - <summary> - <abbrev_sha>',
-    })
-    -- LSP confs
-   require("mason").setup()
-   require("mason-lspconfig").setup({
-   })
-   require("null-ls").setup({
-	sources = {
-		-- require("null-ls").builtins.diagnostics.golangci_lint, -- This is done by mason/lspconfig/gopls
-		-- require("null-ls").builtins.formatting.goimports_reviser,
-		require("null-ls").builtins.formatting.black,
-		require("null-ls").builtins.diagnostics.flake8,
-		require("null-ls").builtins.formatting.shfmt,
-		require("null-ls").builtins.diagnostics.shellcheck,
-	},
-  })
-  require("nvim-lastplace").setup()
-  require("go").setup()
-  require("mason-null-ls").setup()
+			-- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+			-- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+			-- the name of the parser)
+			-- list of language that will be disabled
+			-- disable = { "c", "rust" },
+			-- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
+			-- disable = function(lang, buf)
+			--     local max_filesize = 100 * 1024 -- 100 KB
+			--     local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+			--     if ok and stats and stats.size > max_filesize then
+			--         return true
+			--     end
+			-- end,
 
-   -- Automatically set up your configuration after cloning packer.nvim
-   -- Put this at the end after all plugins
+			-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+			-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+			-- Using this option may slow down your editor, and you may see some duplicate highlights.
+			-- Instead of true it can also be a list of languages
+			additional_vim_regex_highlighting = false,
+		},
+	}
+
+	require('gitsigns').setup({
+		signs                        = {
+			add          = { text = '+' },
+			change       = { text = '~', },
+			delete       = { text = '-', },
+			topdelete    = { text = '-', },
+			changedelete = { text = '-', },
+		},
+		signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`
+		numhl                        = true, -- Toggle with `:Gitsigns toggle_numhl`
+		linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
+		word_diff                    = true, -- Toggle with `:Gitsigns toggle_word_diff`
+		current_line_blame           = true,
+		current_line_blame_formatter = '<author>, <author_time:%R> - <summary> - <abbrev_sha>',
+	})
+	-- LSP confs
+	require("mason").setup()
+	require("mason-lspconfig").setup({
+	})
+	require("null-ls").setup({
+		sources = {
+			-- require("null-ls").builtins.diagnostics.golangci_lint, -- This is done by mason/lspconfig/gopls
+			-- require("null-ls").builtins.formatting.goimports_reviser,
+			require("null-ls").builtins.formatting.black,
+			require("null-ls").builtins.diagnostics.flake8,
+			require("null-ls").builtins.formatting.shfmt,
+			require("null-ls").builtins.diagnostics.shellcheck,
+		},
+	})
+	require("nvim-lastplace").setup()
+	require("go").setup()
+	require("mason-null-ls").setup()
+	require("lsp_signature").setup({
+		bind = true,
+		handler_opts = {
+			border = "shadow"
+		},
+		floating_window_above_cur_line = false,
+		hint_prefix = "",
+	})
+
+	-- Automatically set up your configuration after cloning packer.nvim
+	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

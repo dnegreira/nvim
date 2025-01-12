@@ -1,7 +1,8 @@
 lua require('plugins')
 lua require('lsp')
 lua require('keybinds')
-lua require('golang')
+lua require('nullls')
+lua require('nvim-cmp')
 set number
 highlight DiffAdd ctermfg=10 ctermbg=none
 highlight DiffDelete ctermfg=9 ctermbg=none

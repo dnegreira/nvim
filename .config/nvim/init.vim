@@ -1,4 +1,5 @@
 lua require('plugins')
+lua require('setups')
 lua require('lsp')
 lua require('keybinds')
 lua require('nullls')

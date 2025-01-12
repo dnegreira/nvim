@@ -15,14 +15,13 @@ end
 local lspkind = require('lspkind')
 -- load VSCode-like snippets from plugins (e.g., friendly-snippets)
 
-
 require("luasnip/loaders/from_vscode").lazy_load()
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
-local servers = { 'gopls' }
+local servers = { 'gopls', 'jedi_language_server', 'lua_ls', 'clangd', 'bashls' }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
 		-- on_attach = my_custom_on_attach,
@@ -38,9 +37,6 @@ for _, lsp in ipairs(servers) do
 		},
 	}
 end
--- luasnip setup
-local luasnip = require 'luasnip'
-
 cmp.setup({
 	view = {
 		entries = "custom"
@@ -67,6 +63,13 @@ cmp.setup({
 			end
 		})
 	},
+	-- sources for autocompletion
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" }, -- LSP
+		{ name = "luasnip" }, -- snippets
+		{ name = "buffer" }, -- text within the current buffer
+		{ name = "path" }, -- file system paths
+	}),
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -99,21 +102,5 @@ cmp.setup({
 				fallback()
 			end
 		end, { 'i', 's' }),
-	}),
-	--	mapping = cmp.mapping.preset.insert({
-	--		["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-	--		["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-	--		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-	--		["<C-f>"] = cmp.mapping.scroll_docs(4),
-	--		["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-	--		["<C-e>"] = cmp.mapping.abort(), -- close completion window
-	--		["<CR>"] = cmp.mapping.confirm({ select = false }),
-	--	}),
-	-- sources for autocompletion
-	sources = cmp.config.sources({
-		{ name = "nvim_lsp" }, -- LSP
-		{ name = "luasnip" }, -- snippets
-		{ name = "buffer" }, -- text within the current buffer
-		{ name = "path" }, -- file system paths
 	}),
 })

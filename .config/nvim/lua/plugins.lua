@@ -83,9 +83,6 @@ return packer.startup(function(use)
 	require('mini.pairs').setup()
 	require('mini.fuzzy').setup()
 	require('mini.trailspace').setup()
-	-- require('mini.icons').setup()
-	-- require('mini.completion').setup()
-	-- require('mini.tabline').setup()
 	require('nvim-tree').setup()
 	require('nvim-surround').setup()
 
@@ -150,18 +147,7 @@ return packer.startup(function(use)
 	})
 	-- LSP confs
 	require("mason").setup()
-	require("mason-lspconfig").setup({
-	})
-	require("null-ls").setup({
-		sources = {
-			-- require("null-ls").builtins.diagnostics.golangci_lint, -- This is done by mason/lspconfig/gopls
-			-- require("null-ls").builtins.formatting.goimports_reviser,
-			require("null-ls").builtins.formatting.black,
-			require("null-ls").builtins.diagnostics.flake8,
-			require("null-ls").builtins.formatting.shfmt,
-			require("null-ls").builtins.diagnostics.shellcheck,
-		},
-	})
+	require("mason-lspconfig").setup()
 	require("nvim-lastplace").setup()
 	require("go").setup()
 	require("mason-null-ls").setup()

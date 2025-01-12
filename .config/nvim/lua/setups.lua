@@ -1,3 +1,4 @@
+require('mini.tabline').setup()
 require('mini.statusline').setup()
 require('mini.indentscope').setup()
 require('mini.pairs').setup()

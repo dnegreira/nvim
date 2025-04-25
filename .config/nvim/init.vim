@@ -10,3 +10,4 @@ highlight DiffDelete ctermfg=9 ctermbg=none
 highlight DiffChange ctermfg=5 ctermbg=none
 colorscheme nightfox
 set mouse =
+set spell spelllang=en_us

@@ -73,10 +73,9 @@ require("nvim-lastplace").setup()
 require("go").setup()
 require("mason-null-ls").setup()
 require("lsp_signature").setup({
-	bind = true,
 	handler_opts = {
-		border = "shadow"
+		border = "double"
 	},
-	floating_window_above_cur_line = false,
+	floating_window_above_cur_line = true,
 	hint_prefix = "",
 })

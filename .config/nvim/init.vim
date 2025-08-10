@@ -2,7 +2,7 @@ lua require('plugins')
 lua require('setups')
 lua require('lsp')
 lua require('keybinds')
-lua require('nullls')
+lua require('nonels')
 lua require('nvim-cmp')
 set number
 highlight DiffAdd ctermfg=10 ctermbg=none

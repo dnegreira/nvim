@@ -46,8 +46,8 @@ return require('packer').startup(function(use)
 	use { 'kyazdani42/nvim-tree.lua',
 		requires = { 'kyazdani42/nvim-web-devicons' }
 	}
+	use 'nvimtools/none-ls.nvim'
 	use 'wellle/context.vim'
-	use 'jose-elias-alvarez/null-ls.nvim'
 	use 'ethanholz/nvim-lastplace'
 	use { 'ray-x/go.nvim', tag = 'v0.9.0' }
 	use 'ray-x/guihua.lua'

@@ -20,22 +20,9 @@ require("luasnip/loaders/from_vscode").lazy_load()
 vim.opt.completeopt = "menu,menuone,noselect"
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lspconfig = require('lspconfig')
 local servers = { 'gopls', 'jedi_language_server', 'lua_ls', 'clangd', 'bashls' }
 for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup {
-		-- on_attach = my_custom_on_attach,
-		capabilities = capabilities,
-		settings = {
-			gopls = {
-				usePlaceholders = true,
-			},
-			analyses = {
-				-- https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md
-				unusedparams = true,
-			},
-		},
-	}
+	vim.lsp.enable(lsp)
 end
 cmp.setup({
 	view = {

@@ -8,7 +8,7 @@ require('nvim-tree').setup()
 require('nvim-surround').setup()
 
 
-require 'nvim-treesitter.configs'.setup {
+require('nvim-treesitter').setup({
 	-- A list of parser names, or "all"
 	ensure_installed = { "c", "lua", "go" },
 
@@ -49,7 +49,7 @@ require 'nvim-treesitter.configs'.setup {
 		-- Instead of true it can also be a list of languages
 		additional_vim_regex_highlighting = false,
 	},
-}
+})
 
 require('gitsigns').setup({
 	signs                        = {

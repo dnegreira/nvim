@@ -32,7 +32,6 @@ return require('packer').startup(function(use)
 	use { 'lewis6991/gitsigns.nvim'}
 	use 'kyazdani42/nvim-web-devicons'
 	use {
-		-- 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-treesitter/nvim-treesitter', tag = 'v0.9.1' } }
 		'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-treesitter/nvim-treesitter' } }
 	}
 	use({
@@ -49,7 +48,7 @@ return require('packer').startup(function(use)
 	use 'nvimtools/none-ls.nvim'
 	use 'wellle/context.vim'
 	use 'ethanholz/nvim-lastplace'
-	use { 'ray-x/go.nvim', tag = 'v0.9.0' }
+	use 'ray-x/go.nvim'
 	use 'ray-x/guihua.lua'
 	use 'jay-babu/mason-null-ls.nvim'
 	use 'kylechui/nvim-surround'

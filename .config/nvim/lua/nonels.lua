@@ -4,9 +4,7 @@ require("null-ls").setup({
                        require("null-ls").builtins.formatting.gofumpt,
                        require("null-ls").builtins.formatting.goimports_reviser,
                        require("null-ls").builtins.formatting.black,
-                       require("null-ls").builtins.diagnostics.flake8,
                        require("null-ls").builtins.formatting.shfmt,
-                       require("null-ls").builtins.diagnostics.shellcheck,
                },
 	       debug = true,
     -- you can reuse a shared lspconfig on_attach callback here
